@@ -1,9 +1,3 @@
-# Definition for singly-linked list.
-# class ListNode:
-#     def __init__(self, x):
-#         self.val = x
-#         self.next = None
-
 
 #the commented code takes 2 traversals, 1 for finding length and other for removing nth node
 #the second code takes only 1 traversal
@@ -31,7 +25,31 @@ class Solution:
             return head
  '''           
 
-class Solution:
+class Node:
+    def __init__(self, data):
+       self.data = data
+       self.next = None
+ 
+class LinkedList:
+    def __init__(self):
+        self.head = None
+        self.last_node = None
+ 
+    def append(self, data):
+        if self.last_node is None:
+            self.head = Node(data)
+            self.last_node = self.head
+        else:
+            self.last_node.next = Node(data)
+            self.last_node = self.last_node.next
+ 
+    def display(self):
+        current = self.head
+        while current is not None:
+            print(current.data, end = ' ')
+            current = current.next
+        
+
     def removeNthFromEnd(self, head, n):
         if (head is None):
             return None
@@ -47,6 +65,18 @@ class Solution:
         curr = prev.next
         prev.next = curr.next
         return head
+ 
+a_llist = LinkedList()
+n = int(input('How many elements would you like to add? '))
+for i in range(n):
+    data = int(input('Enter data item: '))
+    a_llist.append(data)
+print('The linked list: ', end = '')
+a_llist.display()
+print("head is", a_llist.head)
+n1 = int(input('which node would you like to remove? '))
+a_llist.removeNthFromEnd(a_llist.head,n1)
+a_llist.display()
         
             
     
