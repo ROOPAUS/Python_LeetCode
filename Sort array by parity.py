@@ -1,6 +1,6 @@
 
 class Solution:
-    def sortArrayByParity(self, A: List[int]) -> List[int]:
+    def sortArrayByParity(self, A: [int]) -> [int]:
         a=[]
         b=[]
         for i in A:
@@ -12,9 +12,9 @@ class Solution:
         
         return a
 
-n=input("Enter number of elements in list:")
+n=int(input("Enter number of elements in list:"))
 A=[]
 for i in range(n):
-    A.append(input("Enter list element"))
+    A.append(int(input("Enter list element")))
 result=Solution().sortArrayByParity(A)
 print(result)
